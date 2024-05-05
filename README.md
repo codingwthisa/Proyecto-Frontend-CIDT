@@ -11,11 +11,12 @@ Aplicación web para la gestión de una lista de tareas. Esta aplicación no req
 
 1. Clona el repositorio:
 
-```bash
 git clone https://github.com/tu_usuario/Proyecto-Frontend-CIDT.git
 
+2. Dependencias:
 pip install -r requirements.txt
 
+3. Migraciones de la base de datos
 python manage.py migrate
 
 ## Congifuración
