@@ -11,7 +11,7 @@ Aplicación web para la gestión de una lista de tareas. Esta aplicación no req
 
 1. Clona el repositorio:
 
-git clone https://github.com/tu_usuario/Proyecto-Frontend-CIDT.git
+  git clone https://github.com/codingwthisa/Proyecto-Frontend-CIDT.git
 
 2. Dependencias:
 pip install -r requirements.txt
