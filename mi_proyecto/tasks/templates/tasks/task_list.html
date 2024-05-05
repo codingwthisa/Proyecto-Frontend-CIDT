@@ -1,0 +1,38 @@
+<!-- tasks/templates/tasks/task_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="{% static 'tasks/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tareas</h1>
+        <form id="todo-form" method="post" action="{% url 'add_task' %}">
+            {% csrf_token %}
+            <input type="text" name="title" id="todo-input" placeholder="Añadir nueva tarea">
+            <button type="submit">Agregar</button>
+        </form>
+        <ul id="todo-list">
+            {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                <form action="{% url 'toggle_task' task.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="toggle-btn" data-task-id="{{ task.id }}">Completar</button>
+
+                </form>
+                <form action="{% url 'delete_task' task.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn">Eliminar</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{% static 'tasks/js/script.js' %}"></script>
+</body>
+</html>
